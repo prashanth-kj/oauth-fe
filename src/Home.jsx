@@ -9,7 +9,7 @@ function Home() {
  const getdata=async()=>{  
     try {
       let res= await AxiosService.get('/auth/currentuser',{withCredentials:true})
-      console.log(res.data)
+      // console.log(res.data)
       setUser(res.data)
     } catch (error) {
       console.log(error);
@@ -28,7 +28,7 @@ const  getNormaldata=async()=>{
 
  const handlelogout =async()=>{
    let res= await AxiosService.get('/auth/logout',{withCredentials:true})
-   console.log(res)
+  //  console.log(res)
    sessionStorage.clear()
    if(res.status==200){
     navigate('/login')
@@ -38,7 +38,7 @@ const  getNormaldata=async()=>{
 
  useEffect(()=>{
    let user = JSON.parse(sessionStorage.getItem('user')) 
-   console.log(user)
+  //  console.log(user)
    if(user){
      getNormaldata()
    }else{
